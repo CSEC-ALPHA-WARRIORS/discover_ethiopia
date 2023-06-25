@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "80902058409",
+    "project_id": "discoverethiopia-38c5c",
+    "storage_bucket": "discoverethiopia-38c5c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:80902058409:android:93123cbadbf337724194b8",
+        "android_client_info": {
+          "package_name": "csec.alphawarriors.discover_ethiopia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "80902058409-v6487d6nc2puoadcphtgfgke0j97dc9s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "csec.alphawarriors.discover_ethiopia",
+            "certificate_hash": "07cb978338db8e8e3eaf93ca72dba92e786c498f"
+          }
+        },
+        {
+          "client_id": "80902058409-l49qiv4k30bfq9frm8ec70al0fml2jmt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDG8FSYuqpOzyZR9B9dIbiDkgBL92n7M1Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "80902058409-7a66b1e6debang7qfci52c80ib6p04ne.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "80902058409-5mh45mk01o9111cm54t40ioi9ujjns1u.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "csec.alphawarriors.discoverEthiopia.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
