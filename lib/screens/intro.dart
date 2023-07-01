@@ -1,6 +1,7 @@
 import 'package:discover_ethiopia/constants/colors.dart';
 import 'package:discover_ethiopia/state/auth_state.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:icons_plus/icons_plus.dart';
@@ -139,7 +140,9 @@ class IntroPage extends HookConsumerWidget {
                           curve: Curves.fastEaseInToSlowEaseOut,
                           opacity: authState.isLoading ? 0 : 1,
                           child: TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              context.go('/home');
+                            },
                             style: ButtonStyle(
                               foregroundColor: MaterialStateProperty.all(
                                 Colors.white,

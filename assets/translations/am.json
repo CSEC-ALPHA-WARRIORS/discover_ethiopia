@@ -1,0 +1,15 @@
+{
+    "hello": "ሰላም, {name}",
+    "explore": "ኢትዮጵያን ለመጎብኘትና ለመረዳት",
+    "search_attractions": "ቱሪስት መስህቦችን መፈለግ",
+    "categories": "ምድቦች",
+    "popular_places": "ታዋቂ ቦታዎች",
+    "Historical": "ታሪካዊ",
+    "Cultural": "ባህላዊ",
+    "National Parks": "ብሔራዊ ፓርኮች",
+    "Natural Artifact": "ተፈጥሯዊ ቅርሶች",
+    "Museums": "ሙዚየሞች",
+    "err": "ስህተት ተከሰተ",
+    "load_cat_fail": "ምድቦችን መጫን አልተቻለም፣ እባክዎ እንደገና ይሞክሩ",
+    "retry": "እንደገና ሞክር"
+}

@@ -1,0 +1,16 @@
+{
+    "hello": "Hello, {name}",
+    "explore": "Explore and know Ethiopia",
+    "search_attractions": "Search Tourist Attractions",
+    "categories": "Categories",
+    "popular_places": "Popular Places",
+    "Historical": "Historical",
+    "Cultural": "Cultural",
+    "National Parks": "National Parks",
+    "National Artifacts": "National Artifacts",
+    "Museums": "Museums",
+    "err": "Error Happened",
+    "load_cat_fail": "Unable to load categories, Please try again",
+    "load_popular_place_fail": "Unable to Load Popular Places",
+    "retry": "Retry"
+}
