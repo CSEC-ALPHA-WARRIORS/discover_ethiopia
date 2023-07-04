@@ -117,7 +117,7 @@ class BottomNavBar extends StatelessWidget {
                     children: [
                       Icon(
                         item.icon,
-                        color: location == item.path
+                        color: location.startsWith(item.path)
                             ? KPrimaryColor.shade500
                             : KPrimaryColor.shade600.withOpacity(0.7),
                       ),
@@ -126,8 +126,8 @@ class BottomNavBar extends StatelessWidget {
                       ),
                       AnimatedContainer(
                         duration: const Duration(microseconds: 200),
-                        width: location == item.path ? 5 : 0,
-                        height: location == item.path ? 5 : 0,
+                        width: location.startsWith(item.path) ? 5 : 0,
+                        height: location.startsWith(item.path) ? 5 : 0,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30),
                           color: KPrimaryColor.shade500,

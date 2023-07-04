@@ -20,4 +20,20 @@ final categoriesProvider = AutoDisposeFutureProvider<List<Category>>.internal(
 );
 
 typedef CategoriesRef = AutoDisposeFutureProviderRef<List<Category>>;
+String _$currentCategoryHash() => r'87814f28104015f7c1ba8e1fc3b01ba8cb8ee38c';
+
+/// See also [currentCategory].
+@ProviderFor(currentCategory)
+final currentCategoryProvider =
+    NotifierProvider<currentCategory, Category?>.internal(
+  currentCategory.new,
+  name: r'currentCategoryProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$currentCategoryHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$currentCategory = Notifier<Category?>;
 // ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions

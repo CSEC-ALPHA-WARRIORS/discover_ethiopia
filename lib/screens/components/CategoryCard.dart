@@ -1,10 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:discover_ethiopia/constants/colors.dart';
+import 'package:discover_ethiopia/controllers/categories/categories_controller.dart';
 import 'package:discover_ethiopia/models/category/category.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class CategoryCard extends StatelessWidget {
+class CategoryCard extends HookConsumerWidget {
   const CategoryCard({
     super.key,
     required this.category,
@@ -13,7 +16,7 @@ class CategoryCard extends StatelessWidget {
   final Category category;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Ink(
       padding: const EdgeInsets.only(left: 20),
       width: 160,
@@ -73,7 +76,10 @@ class CategoryCard extends StatelessWidget {
             SizedBox.expand(
               child: InkWell(
                 onTap: () {
-                  print('Category ${category.id}');
+                  ref
+                      .read(currentCategoryProvider.notifier)
+                      .setCurrentCategory(category);
+                  context.push('/home/category/${category.id}');
                 },
               ),
             ),

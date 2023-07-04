@@ -1,38 +1,75 @@
 import 'package:discover_ethiopia/components/BottomNavBar.dart';
+import 'package:discover_ethiopia/controllers/categories/categories_controller.dart';
 import 'package:discover_ethiopia/screens/category.dart';
 import 'package:discover_ethiopia/screens/home.dart';
 import 'package:discover_ethiopia/screens/intro.dart';
+import 'package:discover_ethiopia/screens/place_details.dart';
+import 'package:discover_ethiopia/screens/place_map.dart';
 import 'package:discover_ethiopia/screens/tools.dart';
+import 'package:discover_ethiopia/state/auth_state.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-final router = GoRouter(
-  routes: [
-    GoRoute(
-      path: '/',
-      builder: (context, state) => const IntroPage(),
-    ),
-    ShellRoute(
-      builder: (context, state, child) => Scaffold(
-        body: child,
-        bottomNavigationBar: const BottomNavBar(),
+part 'router.g.dart';
+
+@Riverpod(keepAlive: true)
+GoRouter router(Ref ref) {
+  final authState = ref.watch(authStateProvider);
+
+  return GoRouter(
+    routes: [
+      GoRoute(
+        path: '/',
+        redirect: (context, state) {
+          if (authState.user == null) {
+            return '/intro';
+          } else {
+            return '/home';
+          }
+        },
       ),
-      routes: [
-        GoRoute(
-          path: '/home',
-          builder: (context, state) => const DiscoverAppHome(),
+      GoRoute(
+        path: '/intro',
+        builder: (context, state) => const IntroPage(),
+        redirect: (context, state) {
+          if (authState.user != null) {
+            return '/home';
+          }
+          return null;
+        },
+      ),
+      ShellRoute(
+        builder: (context, state, child) => Scaffold(
+          body: child,
+          bottomNavigationBar: const BottomNavBar(),
         ),
-        GoRoute(
-          path: '/events',
-          builder: (context, state) => const EventsPage(),
-        ),
-        GoRoute(
-          path: '/category/:id',
-          builder: (context, state) => CategoryPage(
-            id: int.parse(state.queryParameters['id']!),
+        routes: [
+          GoRoute(
+            path: '/home',
+            builder: (context, state) => const DiscoverAppHome(),
           ),
-        )
-      ],
-    ),
-  ],
-);
+          GoRoute(
+            path: '/events',
+            builder: (context, state) => const EventsPage(),
+          ),
+          GoRoute(
+            path: '/home/category/:id',
+            builder: (context, state) => CategoryPage(
+              id: int.parse(state.pathParameters['id']!),
+            ),
+          ),
+          GoRoute(
+            path: '/home/place-details',
+            builder: (context, state) => const PlaceDetailsPage(),
+          ),
+          GoRoute(
+            path: '/home/place-details/map',
+            builder: (context, state) => const PlaceMap(),
+          )
+        ],
+      ),
+    ],
+  );
+}

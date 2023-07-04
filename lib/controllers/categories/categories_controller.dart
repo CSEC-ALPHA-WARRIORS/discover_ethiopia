@@ -13,3 +13,15 @@ Future<List<Category>> categories(Ref ref) async {
   List data = res.data!;
   return data.map(Category.fromJson).toList();
 }
+
+@Riverpod(keepAlive: true)
+class currentCategory extends _$currentCategory {
+  @override
+  Category? build() {
+    return null;
+  }
+
+  void setCurrentCategory(Category cat) {
+    state = cat;
+  }
+}

@@ -11,7 +11,6 @@ class IntroPage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     var authState = ref.watch(authStateProvider);
-    print(authState.user);
 
     return Scaffold(
       body: Stack(

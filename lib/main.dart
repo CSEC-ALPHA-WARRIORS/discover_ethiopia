@@ -1,7 +1,5 @@
 import 'package:discover_ethiopia/constants/colors.dart';
 import 'package:discover_ethiopia/firebase_options.dart';
-import 'package:discover_ethiopia/screens/home.dart';
-import 'package:discover_ethiopia/screens/intro.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +14,6 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
   runApp(
     EasyLocalization(
       supportedLocales: const [
@@ -37,6 +34,7 @@ class MyApp extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final router = ref.watch(routerProvider);
     return MaterialApp.router(
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,

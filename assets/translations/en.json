@@ -12,5 +12,10 @@
     "err": "Error Happened",
     "load_cat_fail": "Unable to load categories, Please try again",
     "load_popular_place_fail": "Unable to Load Popular Places",
-    "retry": "Retry"
+    "load_place_fail": "Unable to Load Places",
+    "retry": "Retry",
+    "show_map": "Show on Map",
+    "weather": "Weather",
+    "distance_from_aa": "{distance} KM from Addis Ababa",
+    "total_reviews": "{count} Reviews"
 }
