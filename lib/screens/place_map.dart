@@ -1,12 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:discover_ethiopia/constants/colors.dart';
 import 'package:discover_ethiopia/controllers/places/place_controller.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:discover_ethiopia/controllers/weather/weather_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -18,11 +16,13 @@ class PlaceMap extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     var place = ref.watch(currentPlaceProvider);
     var size = MediaQuery.of(context).size;
-    var carousel_index = useState(0);
-    var descs = place?.descriptions
-        .where((d) => d.language == context.locale.toString())
-        .toList();
-    var desc = descs!.isNotEmpty ? descs[0] : place?.descriptions[0];
+    var weather = ref.watch(
+      CurrentWeatherProvider(
+        lat: place?.latitude ?? 0,
+        lon: place?.longitude ?? 0,
+      ),
+    );
+
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 0,
@@ -44,36 +44,7 @@ class PlaceMap extends HookConsumerWidget {
                   compassEnabled: true,
                   initialCameraPosition: CameraPosition(
                     target: LatLng(place?.latitude ?? 0, place?.longitude ?? 0),
-                    zoom: 16,
-                  ),
-                ),
-              ),
-              Positioned(
-                bottom: 100,
-                left: 0,
-                right: 0,
-                height: 8,
-                child: Center(
-                  child: ListView.separated(
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      return AnimatedContainer(
-                        width: carousel_index.value == index ? 30 : 8,
-                        decoration: BoxDecoration(
-                          color: carousel_index.value == index
-                              ? Colors.white
-                              : Colors.white54,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        duration: const Duration(
-                          milliseconds: 240,
-                        ),
-                      );
-                    },
-                    separatorBuilder: (context, index) =>
-                        const SizedBox(width: 5),
-                    itemCount: place?.photos.length ?? 0,
+                    zoom: 15,
                   ),
                 ),
               ),
@@ -111,7 +82,7 @@ class PlaceMap extends HookConsumerWidget {
             child: DraggableScrollableSheet(
                 initialChildSize: 0.2,
                 minChildSize: 0.2,
-                maxChildSize: 0.8,
+                maxChildSize: 0.2,
                 builder: (context, scrollController) {
                   return Container(
                     padding: const EdgeInsets.symmetric(
@@ -176,100 +147,63 @@ class PlaceMap extends HookConsumerWidget {
                               const SizedBox(
                                 width: 10,
                               ),
-                              Material(
-                                child: InkWell(
-                                  borderRadius: BorderRadius.circular(20),
-                                  onTap: () {
-                                    print('clicked');
-                                  },
-                                  child: Ink(
-                                    padding: const EdgeInsets.all(8),
-                                    child: Column(
-                                      children: [
-                                        Row(
-                                          children: [
-                                            const Icon(
-                                              Bootstrap.star_fill,
-                                              size: 30,
-                                              color: KPrimaryColor.shade800,
-                                            ),
-                                            const SizedBox(
-                                              width: 14,
-                                            ),
-                                            Text(
-                                              '${place?.rating}',
-                                              style: const TextStyle(
-                                                fontSize: 36,
-                                                fontWeight: FontWeight.bold,
-                                                color: KPrimaryColor.shade800,
-                                              ),
-                                            ),
-                                          ],
+                              Container(
+                                padding: const EdgeInsets.all(8),
+                                child: weather.when(
+                                  data: (data) => Column(
+                                    children: [
+                                      CachedNetworkImage(
+                                        imageUrl: weatherIconUrl(
+                                          data["weather"][0]["icon"],
                                         ),
-                                        const Text(
-                                          'total_reviews',
-                                          style: TextStyle(
-                                            fontSize: 16,
-                                            color: KPrimaryColor.shade500,
+                                        height: 50,
+                                        width: 70,
+                                        fit: BoxFit.fitWidth,
+                                      ),
+                                      Text(
+                                        "${data["main"]["temp"].round()} °C",
+                                        style: const TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 24,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  error: (error, stackTrace) {
+                                    return Material(
+                                      child: InkWell(
+                                        borderRadius: BorderRadius.circular(10),
+                                        onTap: () {
+                                          ref.invalidate(
+                                              currentWeatherProvider);
+                                        },
+                                        child: Ink(
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 10,
+                                            vertical: 10,
                                           ),
-                                        ).tr(namedArgs: {"count": '${1035}'}),
-                                      ],
+                                          decoration: const BoxDecoration(),
+                                          child: const Column(
+                                            children: [
+                                              Icon(
+                                                Iconsax.cloud_cross,
+                                                size: 30,
+                                              ),
+                                              Text('Tap to try again'),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                  loading: () => const Center(
+                                    child: CircularProgressIndicator(
+                                      strokeWidth: 2,
                                     ),
                                   ),
                                 ),
                               ),
                             ],
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Row(
-                            children: [
-                              FilledButton.tonalIcon(
-                                style: const ButtonStyle(
-                                  iconColor: MaterialStatePropertyAll(
-                                      KPrimaryColor.shade400),
-                                ),
-                                onPressed: () {},
-                                icon: const Icon(Iconsax.map_1),
-                                label: const Text(
-                                  'show_map',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: KPrimaryColor.shade400,
-                                  ),
-                                ).tr(),
-                              ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              FilledButton.tonalIcon(
-                                style: const ButtonStyle(
-                                  iconColor: MaterialStatePropertyAll(
-                                    KPrimaryColor.shade400,
-                                  ),
-                                ),
-                                onPressed: () {},
-                                icon: const Icon(Iconsax.cloud_snow),
-                                label: const Text(
-                                  'weather',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: KPrimaryColor.shade400,
-                                  ),
-                                ).tr(),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            desc?.content ?? '',
-                            style: const TextStyle(
-                              fontSize: 18,
-                              height: 1.7,
-                            ),
                           ),
                         ],
                       ),
