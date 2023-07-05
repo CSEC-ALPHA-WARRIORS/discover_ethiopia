@@ -9,8 +9,8 @@ part 'categories_controller.g.dart';
 @riverpod
 Future<List<Category>> categories(Ref ref) async {
   var dio = ref.read(dioProvider);
-  Response<List<dynamic>> res = await dio.get('$baseURL/categories');
-  // Response<List<dynamic>> res = await dio.get('$baseURL/category/index.php');
+  // Response<List<dynamic>> res = await dio.get('$baseURL/categories');
+  Response<List<dynamic>> res = await dio.get('$phpUrl/category/index.php');
   List data = res.data!;
   return data.map(Category.fromJson).toList();
 }

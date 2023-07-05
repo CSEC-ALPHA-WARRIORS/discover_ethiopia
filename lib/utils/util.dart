@@ -1,6 +1,6 @@
 import 'Bahirehasab.dart';
-import '../../calendar/EthiopianCalendar.dart';
-import '../../calendar/GregorianCalendar.dart';
+import '../calendar/EthiopianCalendar.dart';
+import '../calendar/GregorianCalendar.dart';
 
 const int ethiopicEpoch = 2796;
 const int unixEpoch = 719163;

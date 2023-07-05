@@ -1,5 +1,6 @@
 import 'package:discover_ethiopia/components/bottom_navbar.dart';
 import 'package:discover_ethiopia/controllers/categories/categories_controller.dart';
+import 'package:discover_ethiopia/screens/calendar.dart';
 import 'package:discover_ethiopia/screens/category.dart';
 import 'package:discover_ethiopia/screens/home.dart';
 import 'package:discover_ethiopia/screens/intro.dart';
@@ -52,8 +53,8 @@ GoRouter router(Ref ref) {
             builder: (context, state) => const DiscoverAppHome(),
           ),
           GoRoute(
-            path: '/events',
-            builder: (context, state) => const EventsPage(),
+            path: '/calendar',
+            builder: (context, state) => const Calendar(),
           ),
           GoRoute(
             path: '/home/category/:id',

@@ -27,7 +27,7 @@ class BottomNavBar extends StatelessWidget {
       icon: Iconsax.home,
     ),
     BottomNavItem(
-      path: '/events',
+      path: '/calendar',
       icon: Iconsax.calendar,
     ),
     BottomNavItem(

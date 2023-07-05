@@ -1,6 +1,6 @@
 import 'GregorianCalendar.dart';
-import '../../utils/Bahirehasab.dart';
-import '../../utils/util.dart';
+import '../utils/Bahirehasab.dart';
+import '../utils/util.dart';
 
 class EthiopianCalendar {
   int? year;
@@ -36,7 +36,7 @@ class EthiopianCalendar {
   }
 
   GregorianCalendar toGC() {
-    return GregorianCalendar(
+    return new GregorianCalendar(
         year: DateTime.fromMillisecondsSinceEpoch(
                 dateToEpoch(this.year!, this.month!, this.day!))
             .year,
@@ -50,7 +50,7 @@ class EthiopianCalendar {
 
   EthiopianCalendar nextMonth() {
     var isLastMonth = this.month == 13 || (this.month == 12 && this.day! > 6);
-    return EthiopianCalendar(
+    return new EthiopianCalendar(
         year: isLastMonth ? this.year! + 1 : this.year,
         month: isLastMonth ? 1 : this.month! + 1,
         day: this.day);
@@ -58,7 +58,7 @@ class EthiopianCalendar {
 
   EthiopianCalendar previousMonth() {
     var isFirstMonth = this.month == 1;
-    return EthiopianCalendar(
+    return new EthiopianCalendar(
         year: isFirstMonth ? this.year! - 1 : this.year,
         month: isFirstMonth ? (this.day! > 6 ? 12 : 13) : this.month! - 1,
         day: this.day);

@@ -270,7 +270,9 @@ class ReviewPage extends HookConsumerWidget {
                                       itemCount: 5,
                                       itemSize: 16,
                                       itemBuilder: (context, index) => Icon(
-                                        index < (current.rating ?? 0)
+                                        index <
+                                                (int.parse(
+                                                    current.rating ?? '0'))
                                             ? Icons.star
                                             : Icons.star_outline,
                                         color: KPrimaryColor.shade300,

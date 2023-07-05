@@ -1,8 +1,9 @@
+import 'package:discover_ethiopia/components/calendar/GregorianCalendar.dart';
+import 'package:discover_ethiopia/screens/calendar.dart';
+import 'package:discover_ethiopia/utils/Bahirehasab.dart';
 import 'package:flutter/material.dart';
-import 'package:yata/calendar/EthiopianCalendar.dart';
-import 'package:yata/components/text.dart';
-import 'package:yata/calendar/GregorianCalendar.dart';
-import 'package:yata/utils/Bahirehasab.dart';
+
+import '../components/calendar/EthiopianCalendar.dart';
 
 Color getColorFromHex(String hex) {
   return Color(int.parse(hex.substring(1, 7), radix: 16) + 0xFF000000);
