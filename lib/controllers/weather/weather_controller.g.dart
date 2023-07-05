@@ -204,7 +204,7 @@ class ForecastByNameProvider
 }
 
 String _$forecastByPositionHash() =>
-    r'4513c4f47d92f74a09b6dc66e17a2270f067a5ce';
+    r'5e47b709cc61f1f8c73dc69aa8a8440ba22281b3';
 typedef ForecastByPositionRef
     = AutoDisposeFutureProviderRef<Map<dynamic, dynamic>?>;
 

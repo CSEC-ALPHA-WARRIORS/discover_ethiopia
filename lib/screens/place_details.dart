@@ -186,7 +186,7 @@ class PlaceDetailsPage extends HookConsumerWidget {
                                 child: InkWell(
                                   borderRadius: BorderRadius.circular(20),
                                   onTap: () {
-                                    print('clicked');
+                                    context.push('/home/place-details/reviews');
                                   },
                                   child: Ink(
                                     padding: const EdgeInsets.all(8),

@@ -1,10 +1,11 @@
-import 'package:discover_ethiopia/components/BottomNavBar.dart';
+import 'package:discover_ethiopia/components/bottom_navbar.dart';
 import 'package:discover_ethiopia/controllers/categories/categories_controller.dart';
 import 'package:discover_ethiopia/screens/category.dart';
 import 'package:discover_ethiopia/screens/home.dart';
 import 'package:discover_ethiopia/screens/intro.dart';
 import 'package:discover_ethiopia/screens/place_details.dart';
 import 'package:discover_ethiopia/screens/place_map.dart';
+import 'package:discover_ethiopia/screens/reviews.dart';
 import 'package:discover_ethiopia/screens/tools.dart';
 import 'package:discover_ethiopia/state/auth_state.dart';
 import 'package:flutter/material.dart';
@@ -67,6 +68,10 @@ GoRouter router(Ref ref) {
           GoRoute(
             path: '/home/place-details/map',
             builder: (context, state) => const PlaceMap(),
+          ),
+          GoRoute(
+            path: '/home/place-details/reviews',
+            builder: (context, state) => const ReviewPage(),
           )
         ],
       ),
