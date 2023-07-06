@@ -70,7 +70,8 @@ class CustomAppBar extends HookConsumerWidget {
               ],
             ),
             child: CachedNetworkImage(
-              imageUrl: authState.user!.photoURL ?? '',
+              imageUrl: authState.user?.photoURL ??
+                  'https://api.dicebear.com/6.x/avataaars-neutral/svg?seed=Oreo',
               height: 50,
               width: 50,
               fit: BoxFit.cover,

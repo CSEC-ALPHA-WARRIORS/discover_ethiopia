@@ -9,6 +9,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fade_shimmer/fade_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:icons_plus/icons_plus.dart';
 
@@ -19,6 +21,7 @@ class DiscoverAppHome extends HookConsumerWidget {
   const DiscoverAppHome({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    var searchKeyword = useTextEditingController();
     var authState = ref.watch(authStateProvider);
     var categories = ref.watch(categoriesProvider);
     var popularPlaces = ref.watch(popularPlacesProvider);
@@ -56,7 +59,7 @@ class DiscoverAppHome extends HookConsumerWidget {
                     header(authState),
                     Positioned(
                       bottom: 0,
-                      child: searchBox(context, size),
+                      child: searchBox(context, size, searchKeyword),
                     ),
                   ],
                 ),
@@ -199,7 +202,8 @@ class DiscoverAppHome extends HookConsumerWidget {
     );
   }
 
-  Container searchBox(BuildContext context, Size size) {
+  Container searchBox(
+      BuildContext context, Size size, TextEditingController search) {
     return Container(
       width: size.width,
       padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -224,6 +228,7 @@ class DiscoverAppHome extends HookConsumerWidget {
           children: [
             Expanded(
               child: TextField(
+                controller: search,
                 decoration: InputDecoration(
                   border: InputBorder.none,
                   hintText: "search_attractions".tr(),
@@ -236,9 +241,9 @@ class DiscoverAppHome extends HookConsumerWidget {
             ),
             IconButton(
               onPressed: () {
-                context.setLocale(context.locale.toString() == 'en'
-                    ? const Locale('am')
-                    : const Locale('en'));
+                context.push(Uri(
+                    path: '/home/search',
+                    queryParameters: {"keyword": search.text}).toString());
               },
               icon: const Icon(BoxIcons.bx_search_alt),
               color: KPrimaryColor.shade900,
@@ -269,7 +274,8 @@ class DiscoverAppHome extends HookConsumerWidget {
               ],
             ),
             child: authState.user == null
-                ? Image.asset('assets/images/dummy-profile.jpg')
+                ? Image.network(
+                    'https://api.dicebear.com/6.x/avataaars-neutral/svg?seed=Oreo')
                 : CachedNetworkImage(imageUrl: authState.user!.photoURL ?? ""),
           ),
           const SizedBox(
@@ -286,7 +292,7 @@ class DiscoverAppHome extends HookConsumerWidget {
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
-              ).tr(namedArgs: {"name": "Naol"}),
+              ).tr(namedArgs: {"name": authState.user?.displayName ?? "Guest"}),
               const Text(
                 "explore",
                 style: TextStyle(

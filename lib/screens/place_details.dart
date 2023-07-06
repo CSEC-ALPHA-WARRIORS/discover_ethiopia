@@ -3,6 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:discover_ethiopia/constants/colors.dart';
 import 'package:discover_ethiopia/controllers/places/place_controller.dart';
+import 'package:discover_ethiopia/models/place/place.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -18,10 +19,14 @@ class PlaceDetailsPage extends HookConsumerWidget {
     var place = ref.watch(currentPlaceProvider);
     var size = MediaQuery.of(context).size;
     var carousel_index = useState(0);
-    var descs = place?.descriptions
+    var descs = place!.descriptions!
         .where((d) => d.language == context.locale.toString())
         .toList();
-    var desc = descs!.isNotEmpty ? descs[0] : place?.descriptions[0];
+    var desc = descs!.isNotEmpty
+        ? descs[0]
+        : place.descriptions!.isNotEmpty
+            ? place.descriptions![0]
+            : Description(content: "", language: "en");
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 0,
@@ -37,10 +42,10 @@ class PlaceDetailsPage extends HookConsumerWidget {
             children: [
               SizedBox(
                 child: CarouselSlider.builder(
-                  itemCount: place?.photos.length,
+                  itemCount: place!.photos!.length,
                   itemBuilder: (context, index, pageIndex) =>
                       CachedNetworkImage(
-                    imageUrl: place?.photos[index] ?? '',
+                    imageUrl: place?.photos![index] ?? '',
                     fit: BoxFit.cover,
                   ),
                   options: CarouselOptions(
@@ -77,7 +82,7 @@ class PlaceDetailsPage extends HookConsumerWidget {
                     },
                     separatorBuilder: (context, index) =>
                         const SizedBox(width: 5),
-                    itemCount: place?.photos.length ?? 0,
+                    itemCount: place.photos?.length ?? 0,
                   ),
                 ),
               ),
@@ -157,7 +162,7 @@ class PlaceDetailsPage extends HookConsumerWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     AutoSizeText(
-                                      place?.title ?? '',
+                                      place.title ?? '',
                                       // overflow: TextOverflow.clip,
                                       maxLines: 1,
                                       style: const TextStyle(
@@ -218,7 +223,7 @@ class PlaceDetailsPage extends HookConsumerWidget {
                                             fontSize: 16,
                                             color: KPrimaryColor.shade500,
                                           ),
-                                        ).tr(namedArgs: {"count": '${1035}'}),
+                                        ).tr(),
                                       ],
                                     ),
                                   ),
@@ -273,7 +278,7 @@ class PlaceDetailsPage extends HookConsumerWidget {
                             height: 20,
                           ),
                           Text(
-                            desc?.content ?? '',
+                            desc.content ?? '',
                             style: TextStyle(
                               fontSize: 18,
                               height: 1.7,

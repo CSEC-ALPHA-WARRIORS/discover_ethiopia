@@ -9,6 +9,7 @@ import 'package:discover_ethiopia/screens/intro.dart';
 import 'package:discover_ethiopia/screens/place_details.dart';
 import 'package:discover_ethiopia/screens/place_map.dart';
 import 'package:discover_ethiopia/screens/reviews.dart';
+import 'package:discover_ethiopia/screens/search.dart';
 import 'package:discover_ethiopia/screens/tools.dart';
 import 'package:discover_ethiopia/state/auth_state.dart';
 import 'package:flutter/material.dart';
@@ -74,6 +75,12 @@ GoRouter router(Ref ref) {
             path: '/home/category/:id',
             builder: (context, state) => CategoryPage(
               id: int.parse(state.pathParameters['id']!),
+            ),
+          ),
+          GoRoute(
+            path: '/home/search',
+            builder: (context, state) => SearchPage(
+              keyword: state.queryParameters["keyword"] ?? "",
             ),
           ),
           GoRoute(

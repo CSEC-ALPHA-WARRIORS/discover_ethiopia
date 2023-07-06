@@ -1,6 +1,9 @@
+import 'package:dio/dio.dart';
+import 'package:discover_ethiopia/constants/api.dart';
 import 'package:discover_ethiopia/controllers/auth/auth_controller.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class AuthState {
   late bool isLoading;

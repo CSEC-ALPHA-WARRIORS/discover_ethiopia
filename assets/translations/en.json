@@ -13,9 +13,12 @@
     "load_cat_fail": "Unable to load categories, Please try again",
     "load_popular_place_fail": "Unable to Load Popular Places",
     "load_place_fail": "Unable to Load Places",
+    "load_search_fail": "Unable to Load Search Places",
     "retry": "Retry",
     "show_map": "Show on Map",
     "weather": "Weather",
     "distance_from_aa": "{distance} KM from Addis Ababa",
-    "total_reviews": "{count} Reviews"
+    "total_reviews": "Reviews",
+    "no_result": "0 Results found",
+    "no_result_desc": "Check your keyword and Search again"
 }

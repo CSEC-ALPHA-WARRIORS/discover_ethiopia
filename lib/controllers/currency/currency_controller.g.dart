@@ -6,7 +6,7 @@ part of 'currency_controller.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$rateHash() => r'44fd008e660c554060fc85687ed2ec5b4446753d';
+String _$rateHash() => r'45106f683f6efb08b75436c72d96240be17315a7';
 
 /// Copied from Dart SDK
 class _SystemHash {

@@ -1,7 +1,9 @@
 import 'package:discover_ethiopia/constants/colors.dart';
+import 'package:discover_ethiopia/state/auth_state.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:icons_plus/icons_plus.dart';
 
 class BottomNavItem {
@@ -16,7 +18,7 @@ class BottomNavItem {
   });
 }
 
-class BottomNavBar extends StatelessWidget {
+class BottomNavBar extends HookConsumerWidget {
   const BottomNavBar({
     super.key,
   });
@@ -46,7 +48,7 @@ class BottomNavBar extends StatelessWidget {
   ];
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     var location = GoRouter.of(context).location;
     return Container(
       // padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -70,9 +72,8 @@ class BottomNavBar extends StatelessWidget {
                 child: Center(
                   child: GestureDetector(
                     onTap: () {
-                      context.setLocale(context.locale.toString() == 'en'
-                          ? const Locale('am')
-                          : const Locale('en'));
+                      ref.read(authStateProvider.notifier).logout();
+                      context.go('/intro');
                     },
                     child: Container(
                       height: 55,

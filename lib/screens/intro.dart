@@ -1,3 +1,4 @@
+import 'package:discover_ethiopia/constants/api.dart';
 import 'package:discover_ethiopia/constants/colors.dart';
 import 'package:discover_ethiopia/state/auth_state.dart';
 import 'package:flutter/material.dart';
@@ -73,6 +74,8 @@ class IntroPage extends HookConsumerWidget {
                       child: InkWell(
                         onTap: () {
                           ref.read(authStateProvider.notifier).login();
+                          var dio = ref.read(dioProvider);
+                          context.go('/');
                         },
                         child: AnimatedContainer(
                           height: 50,

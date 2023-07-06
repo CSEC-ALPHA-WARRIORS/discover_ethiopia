@@ -4,23 +4,24 @@ part 'review_model.freezed.dart';
 part 'review_model.g.dart';
 
 @freezed
-class ReviewResponse with _$ReviewResponse {
-  factory ReviewResponse({
-    Map<String, int>? counts,
-    double? rating,
+class ReviewModel with _$ReviewModel {
+  factory ReviewModel({
     List<Review>? reviews,
-  }) = _ReviewResponse;
+    double? rating,
+    String? message,
+    Map<String, int>? count,
+  }) = _ReviewModel;
 
-  factory ReviewResponse.fromJson(Map<String, dynamic> json) =>
-      _$ReviewResponseFromJson(json);
+  factory ReviewModel.fromJson(Map<String, dynamic> json) =>
+      _$ReviewModelFromJson(json);
 }
 
 @freezed
 class Review with _$Review {
   factory Review({
-    String? rating,
     String? comment,
-    User? user,
+    String? rating,
+    List<User>? user,
   }) = _Review;
 
   factory Review.fromJson(Map<String, dynamic> json) => _$ReviewFromJson(json);
@@ -30,9 +31,11 @@ class Review with _$Review {
 class User with _$User {
   factory User({
     int? id,
-    String? displayName,
-    String? photoURL,
+    String? name,
     String? email,
+    String? password,
+    String? photoUrl,
+    String? role,
   }) = _User;
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);

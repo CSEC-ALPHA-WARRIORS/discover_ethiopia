@@ -6,48 +6,54 @@ part of 'review_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ReviewResponse _$$_ReviewResponseFromJson(Map<String, dynamic> json) =>
-    _$_ReviewResponse(
-      counts: (json['counts'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, e as int),
-      ),
-      rating: (json['rating'] as num?)?.toDouble(),
+_$_ReviewModel _$$_ReviewModelFromJson(Map<String, dynamic> json) =>
+    _$_ReviewModel(
       reviews: (json['reviews'] as List<dynamic>?)
           ?.map((e) => Review.fromJson(e as Map<String, dynamic>))
           .toList(),
+      rating: (json['rating'] as num?)?.toDouble(),
+      message: json['message'] as String?,
+      count: (json['count'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as int),
+      ),
     );
 
-Map<String, dynamic> _$$_ReviewResponseToJson(_$_ReviewResponse instance) =>
+Map<String, dynamic> _$$_ReviewModelToJson(_$_ReviewModel instance) =>
     <String, dynamic>{
-      'counts': instance.counts,
-      'rating': instance.rating,
       'reviews': instance.reviews,
+      'rating': instance.rating,
+      'message': instance.message,
+      'count': instance.count,
     };
 
 _$_Review _$$_ReviewFromJson(Map<String, dynamic> json) => _$_Review(
-      rating: json['rating'] as String?,
       comment: json['comment'] as String?,
-      user: json['user'] == null
-          ? null
-          : User.fromJson(json['user'] as Map<String, dynamic>),
+      rating: json['rating'] as String?,
+      user: (json['user'] as List<dynamic>?)
+          ?.map((e) => User.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$_ReviewToJson(_$_Review instance) => <String, dynamic>{
-      'rating': instance.rating,
       'comment': instance.comment,
+      'rating': instance.rating,
       'user': instance.user,
     };
 
 _$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
       id: json['id'] as int?,
-      displayName: json['displayName'] as String?,
-      photoURL: json['photoURL'] as String?,
+      name: json['name'] as String?,
       email: json['email'] as String?,
+      password: json['password'] as String?,
+      photoUrl: json['photoUrl'] as String?,
+      role: json['role'] as String?,
     );
 
 Map<String, dynamic> _$$_UserToJson(_$_User instance) => <String, dynamic>{
       'id': instance.id,
-      'displayName': instance.displayName,
-      'photoURL': instance.photoURL,
+      'name': instance.name,
       'email': instance.email,
+      'password': instance.password,
+      'photoUrl': instance.photoUrl,
+      'role': instance.role,
     };

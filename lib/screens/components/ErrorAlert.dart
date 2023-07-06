@@ -8,7 +8,7 @@ class ErrorAlert extends StatelessWidget {
     super.key,
     required this.title,
     required this.desc,
-    required this.onRetry,
+    this.onRetry,
   });
 
   final String title;
@@ -55,33 +55,34 @@ class ErrorAlert extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            SizedBox(
-              width: 130,
-              child: FilledButton(
-                onPressed: onRetry != null ? () => onRetry!() : null,
-                style: ButtonStyle(
-                  padding: MaterialStateProperty.all(
-                    const EdgeInsets.symmetric(
-                      vertical: 6,
-                      horizontal: 14,
+            if (onRetry != null)
+              SizedBox(
+                width: 130,
+                child: FilledButton(
+                  onPressed: onRetry != null ? () => onRetry!() : null,
+                  style: ButtonStyle(
+                    padding: MaterialStateProperty.all(
+                      const EdgeInsets.symmetric(
+                        vertical: 6,
+                        horizontal: 14,
+                      ),
                     ),
+                    backgroundColor: const MaterialStatePropertyAll(
+                      KPrimaryColor.shade600,
+                    ),
+                    iconSize: const MaterialStatePropertyAll(16),
                   ),
-                  backgroundColor: const MaterialStatePropertyAll(
-                    KPrimaryColor.shade600,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Icon(Iconsax.refresh),
+                      const SizedBox(width: 10),
+                      const Text("retry").tr(),
+                    ],
                   ),
-                  iconSize: const MaterialStatePropertyAll(16),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Icon(Iconsax.refresh),
-                    const SizedBox(width: 10),
-                    const Text("retry").tr(),
-                  ],
                 ),
               ),
-            ),
           ],
         ),
       ),

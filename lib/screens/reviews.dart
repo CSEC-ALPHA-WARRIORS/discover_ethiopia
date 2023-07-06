@@ -72,7 +72,7 @@ class ReviewPage extends HookConsumerWidget {
                             ratingRow(
                                 "$i",
                                 data.reviews!.isNotEmpty
-                                    ? (data.counts!["$i"]! /
+                                    ? (data.count!["$i"]! /
                                         data.reviews!.length)
                                     : 0.0),
                         ],
@@ -126,8 +126,6 @@ class ReviewPage extends HookConsumerWidget {
                                             padding: const EdgeInsets.symmetric(
                                                 horizontal: 10, vertical: 5),
                                             decoration: BoxDecoration(
-                                              color: KPrimaryColor.shade100
-                                                  .withOpacity(0.2),
                                               borderRadius:
                                                   BorderRadius.circular(10),
                                             ),
@@ -137,7 +135,8 @@ class ReviewPage extends HookConsumerWidget {
                                                   controller: commentController,
                                                   minLines: 4,
                                                   maxLines: 6,
-                                                  decoration: InputDecoration(
+                                                  decoration:
+                                                      const InputDecoration(
                                                     border: InputBorder.none,
                                                     hintText:
                                                         "Enter Your Comment",
@@ -170,7 +169,13 @@ class ReviewPage extends HookConsumerWidget {
                                                               comment:
                                                                   commentController
                                                                       .text,
-                                                            );
+                                                            )
+                                                            .then((value) {
+                                                          ref.invalidate(
+                                                              placeReviewProvider);
+                                                          Navigator.pop(
+                                                              context);
+                                                        });
                                                       },
                                                       label: Text(
                                                           addReviewMutaton
@@ -238,13 +243,14 @@ class ReviewPage extends HookConsumerWidget {
                       return Container(
                         padding: const EdgeInsets.all(20),
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             Row(
                               children: [
                                 CircleAvatar(
                                   radius: 30,
                                   backgroundImage: CachedNetworkImageProvider(
-                                    current.user?.photoURL ?? '',
+                                    current.user?[0].photoUrl ?? '',
                                   ),
                                 ),
                                 const SizedBox(
@@ -254,7 +260,7 @@ class ReviewPage extends HookConsumerWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      '${current.user?.displayName}',
+                                      '${current.user?[0].name}',
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 20,

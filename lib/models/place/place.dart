@@ -5,16 +5,17 @@ part 'place.g.dart';
 
 @freezed
 class Place with _$Place {
-  const factory Place({
-    required int id,
-    required String title,
-    required double latitude,
-    required double longitude,
-    required String region,
-    required int distance,
-    required List<Description> descriptions,
-    required List<String> photos,
-    required double rating,
+  factory Place({
+    int? id,
+    String? title,
+    double? latitude,
+    double? longitude,
+    int? region,
+    int? distance,
+    List<Description>? descriptions,
+    List<String>? photos,
+    List<Recommendation>? recommendations,
+    int? rating,
   }) = _Place;
 
   factory Place.fromJson(dynamic json) => _$PlaceFromJson(json);
@@ -22,9 +23,36 @@ class Place with _$Place {
 
 @freezed
 class Description with _$Description {
-  const factory Description({
-    required String language,
-    required String content,
+  factory Description({
+    String? language,
+    String? content,
   }) = _Description;
-  factory Description.fromJson(dynamic json) => _$DescriptionFromJson(json);
+
+  factory Description.fromJson(Map<String, dynamic> json) =>
+      _$DescriptionFromJson(json);
 }
+
+@freezed
+class Recommendation with _$Recommendation {
+  factory Recommendation({
+    String? desc,
+    String? message,
+  }) = _Recommendation;
+
+  factory Recommendation.fromJson(Map<String, dynamic> json) =>
+      _$RecommendationFromJson(json);
+}
+
+List<String> ethiopiaRegions = [
+  'Tigray',
+  'Afar',
+  'Amhara',
+  'Oromia',
+  'Somali',
+  'Benishangul-Gumuz',
+  'Southern Nations, Nationalities, and Peoples\' Region',
+  'Gambela',
+  'Harari',
+  'Dire Dawa',
+  'Addis Ababa',
+];

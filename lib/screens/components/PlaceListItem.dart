@@ -85,6 +85,12 @@ class PlaceListItem extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     var size = MediaQuery.of(context).size;
+
+    var eng = place.descriptions!
+        .where((element) => element.language == 'en')
+        .toList();
+    var desc = eng.isNotEmpty ? eng.first.content : "";
+
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20),
       child: InkWell(
@@ -106,7 +112,7 @@ class PlaceListItem extends HookConsumerWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: CachedNetworkImage(
-                  imageUrl: place.photos[0],
+                  imageUrl: place.photos?[0] ?? "",
                   width: size.width * .4,
                   fit: BoxFit.cover,
                 ),
@@ -119,14 +125,14 @@ class PlaceListItem extends HookConsumerWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Text(
-                      place.title,
+                      place.title ?? "",
                       style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                     Text(
-                      place.region,
+                      ethiopiaRegions[place?.region ?? 0],
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.grey,
@@ -137,10 +143,7 @@ class PlaceListItem extends HookConsumerWidget {
                     ),
                     Expanded(
                       child: Text(
-                        place.descriptions
-                            .where((element) => element.language == 'en')
-                            .first
-                            .content,
+                        desc ?? "",
                         overflow: TextOverflow.clip,
                         maxLines: 2,
                         softWrap: true,

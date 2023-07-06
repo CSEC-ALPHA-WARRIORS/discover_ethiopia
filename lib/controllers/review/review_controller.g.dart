@@ -6,11 +6,11 @@ part of 'review_controller.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$placeReviewHash() => r'e126d107039e6f3b7e6f9098a9fe3f376292143d';
+String _$placeReviewHash() => r'26d70199bafe1d690ed6a5c52bd62823efadead1';
 
 /// See also [placeReview].
 @ProviderFor(placeReview)
-final placeReviewProvider = AutoDisposeFutureProvider<ReviewResponse>.internal(
+final placeReviewProvider = AutoDisposeFutureProvider<ReviewModel>.internal(
   placeReview,
   name: r'placeReviewProvider',
   debugGetCreateSourceHash:
@@ -19,8 +19,8 @@ final placeReviewProvider = AutoDisposeFutureProvider<ReviewResponse>.internal(
   allTransitiveDependencies: null,
 );
 
-typedef PlaceReviewRef = AutoDisposeFutureProviderRef<ReviewResponse>;
-String _$postReviewHash() => r'd02775c836e2d3d0c6824dc20d4ebef25f8bdafe';
+typedef PlaceReviewRef = AutoDisposeFutureProviderRef<ReviewModel>;
+String _$postReviewHash() => r'5fb0a07b538f41c29ef94cd835fbd42c5d54fc2e';
 
 /// See also [PostReview].
 @ProviderFor(PostReview)

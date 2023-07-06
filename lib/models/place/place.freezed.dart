@@ -20,15 +20,17 @@ Place _$PlaceFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Place {
-  int get id => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
-  double get latitude => throw _privateConstructorUsedError;
-  double get longitude => throw _privateConstructorUsedError;
-  String get region => throw _privateConstructorUsedError;
-  int get distance => throw _privateConstructorUsedError;
-  List<Description> get descriptions => throw _privateConstructorUsedError;
-  List<String> get photos => throw _privateConstructorUsedError;
-  double get rating => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
+  double? get latitude => throw _privateConstructorUsedError;
+  double? get longitude => throw _privateConstructorUsedError;
+  int? get region => throw _privateConstructorUsedError;
+  int? get distance => throw _privateConstructorUsedError;
+  List<Description>? get descriptions => throw _privateConstructorUsedError;
+  List<String>? get photos => throw _privateConstructorUsedError;
+  List<Recommendation>? get recommendations =>
+      throw _privateConstructorUsedError;
+  int? get rating => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,15 +43,16 @@ abstract class $PlaceCopyWith<$Res> {
       _$PlaceCopyWithImpl<$Res, Place>;
   @useResult
   $Res call(
-      {int id,
-      String title,
-      double latitude,
-      double longitude,
-      String region,
-      int distance,
-      List<Description> descriptions,
-      List<String> photos,
-      double rating});
+      {int? id,
+      String? title,
+      double? latitude,
+      double? longitude,
+      int? region,
+      int? distance,
+      List<Description>? descriptions,
+      List<String>? photos,
+      List<Recommendation>? recommendations,
+      int? rating});
 }
 
 /// @nodoc
@@ -65,53 +68,58 @@ class _$PlaceCopyWithImpl<$Res, $Val extends Place>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? title = null,
-    Object? latitude = null,
-    Object? longitude = null,
-    Object? region = null,
-    Object? distance = null,
-    Object? descriptions = null,
-    Object? photos = null,
-    Object? rating = null,
+    Object? id = freezed,
+    Object? title = freezed,
+    Object? latitude = freezed,
+    Object? longitude = freezed,
+    Object? region = freezed,
+    Object? distance = freezed,
+    Object? descriptions = freezed,
+    Object? photos = freezed,
+    Object? recommendations = freezed,
+    Object? rating = freezed,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      title: null == title
+              as int?,
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      latitude: null == latitude
+              as String?,
+      latitude: freezed == latitude
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
-              as double,
-      longitude: null == longitude
+              as double?,
+      longitude: freezed == longitude
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
-              as double,
-      region: null == region
+              as double?,
+      region: freezed == region
           ? _value.region
           : region // ignore: cast_nullable_to_non_nullable
-              as String,
-      distance: null == distance
+              as int?,
+      distance: freezed == distance
           ? _value.distance
           : distance // ignore: cast_nullable_to_non_nullable
-              as int,
-      descriptions: null == descriptions
+              as int?,
+      descriptions: freezed == descriptions
           ? _value.descriptions
           : descriptions // ignore: cast_nullable_to_non_nullable
-              as List<Description>,
-      photos: null == photos
+              as List<Description>?,
+      photos: freezed == photos
           ? _value.photos
           : photos // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      rating: null == rating
+              as List<String>?,
+      recommendations: freezed == recommendations
+          ? _value.recommendations
+          : recommendations // ignore: cast_nullable_to_non_nullable
+              as List<Recommendation>?,
+      rating: freezed == rating
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int?,
     ) as $Val);
   }
 }
@@ -123,15 +131,16 @@ abstract class _$$_PlaceCopyWith<$Res> implements $PlaceCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int id,
-      String title,
-      double latitude,
-      double longitude,
-      String region,
-      int distance,
-      List<Description> descriptions,
-      List<String> photos,
-      double rating});
+      {int? id,
+      String? title,
+      double? latitude,
+      double? longitude,
+      int? region,
+      int? distance,
+      List<Description>? descriptions,
+      List<String>? photos,
+      List<Recommendation>? recommendations,
+      int? rating});
 }
 
 /// @nodoc
@@ -143,53 +152,58 @@ class __$$_PlaceCopyWithImpl<$Res> extends _$PlaceCopyWithImpl<$Res, _$_Place>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? title = null,
-    Object? latitude = null,
-    Object? longitude = null,
-    Object? region = null,
-    Object? distance = null,
-    Object? descriptions = null,
-    Object? photos = null,
-    Object? rating = null,
+    Object? id = freezed,
+    Object? title = freezed,
+    Object? latitude = freezed,
+    Object? longitude = freezed,
+    Object? region = freezed,
+    Object? distance = freezed,
+    Object? descriptions = freezed,
+    Object? photos = freezed,
+    Object? recommendations = freezed,
+    Object? rating = freezed,
   }) {
     return _then(_$_Place(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      title: null == title
+              as int?,
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      latitude: null == latitude
+              as String?,
+      latitude: freezed == latitude
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
-              as double,
-      longitude: null == longitude
+              as double?,
+      longitude: freezed == longitude
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
-              as double,
-      region: null == region
+              as double?,
+      region: freezed == region
           ? _value.region
           : region // ignore: cast_nullable_to_non_nullable
-              as String,
-      distance: null == distance
+              as int?,
+      distance: freezed == distance
           ? _value.distance
           : distance // ignore: cast_nullable_to_non_nullable
-              as int,
-      descriptions: null == descriptions
+              as int?,
+      descriptions: freezed == descriptions
           ? _value._descriptions
           : descriptions // ignore: cast_nullable_to_non_nullable
-              as List<Description>,
-      photos: null == photos
+              as List<Description>?,
+      photos: freezed == photos
           ? _value._photos
           : photos // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      rating: null == rating
+              as List<String>?,
+      recommendations: freezed == recommendations
+          ? _value._recommendations
+          : recommendations // ignore: cast_nullable_to_non_nullable
+              as List<Recommendation>?,
+      rating: freezed == rating
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int?,
     ));
   }
 }
@@ -197,56 +211,72 @@ class __$$_PlaceCopyWithImpl<$Res> extends _$PlaceCopyWithImpl<$Res, _$_Place>
 /// @nodoc
 @JsonSerializable()
 class _$_Place implements _Place {
-  const _$_Place(
-      {required this.id,
-      required this.title,
-      required this.latitude,
-      required this.longitude,
-      required this.region,
-      required this.distance,
-      required final List<Description> descriptions,
-      required final List<String> photos,
-      required this.rating})
+  _$_Place(
+      {this.id,
+      this.title,
+      this.latitude,
+      this.longitude,
+      this.region,
+      this.distance,
+      final List<Description>? descriptions,
+      final List<String>? photos,
+      final List<Recommendation>? recommendations,
+      this.rating})
       : _descriptions = descriptions,
-        _photos = photos;
+        _photos = photos,
+        _recommendations = recommendations;
 
   factory _$_Place.fromJson(Map<String, dynamic> json) =>
       _$$_PlaceFromJson(json);
 
   @override
-  final int id;
+  final int? id;
   @override
-  final String title;
+  final String? title;
   @override
-  final double latitude;
+  final double? latitude;
   @override
-  final double longitude;
+  final double? longitude;
   @override
-  final String region;
+  final int? region;
   @override
-  final int distance;
-  final List<Description> _descriptions;
+  final int? distance;
+  final List<Description>? _descriptions;
   @override
-  List<Description> get descriptions {
+  List<Description>? get descriptions {
+    final value = _descriptions;
+    if (value == null) return null;
     if (_descriptions is EqualUnmodifiableListView) return _descriptions;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_descriptions);
+    return EqualUnmodifiableListView(value);
   }
 
-  final List<String> _photos;
+  final List<String>? _photos;
   @override
-  List<String> get photos {
+  List<String>? get photos {
+    final value = _photos;
+    if (value == null) return null;
     if (_photos is EqualUnmodifiableListView) return _photos;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_photos);
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<Recommendation>? _recommendations;
+  @override
+  List<Recommendation>? get recommendations {
+    final value = _recommendations;
+    if (value == null) return null;
+    if (_recommendations is EqualUnmodifiableListView) return _recommendations;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
   }
 
   @override
-  final double rating;
+  final int? rating;
 
   @override
   String toString() {
-    return 'Place(id: $id, title: $title, latitude: $latitude, longitude: $longitude, region: $region, distance: $distance, descriptions: $descriptions, photos: $photos, rating: $rating)';
+    return 'Place(id: $id, title: $title, latitude: $latitude, longitude: $longitude, region: $region, distance: $distance, descriptions: $descriptions, photos: $photos, recommendations: $recommendations, rating: $rating)';
   }
 
   @override
@@ -266,6 +296,8 @@ class _$_Place implements _Place {
             const DeepCollectionEquality()
                 .equals(other._descriptions, _descriptions) &&
             const DeepCollectionEquality().equals(other._photos, _photos) &&
+            const DeepCollectionEquality()
+                .equals(other._recommendations, _recommendations) &&
             (identical(other.rating, rating) || other.rating == rating));
   }
 
@@ -281,6 +313,7 @@ class _$_Place implements _Place {
       distance,
       const DeepCollectionEquality().hash(_descriptions),
       const DeepCollectionEquality().hash(_photos),
+      const DeepCollectionEquality().hash(_recommendations),
       rating);
 
   @JsonKey(ignore: true)
@@ -298,37 +331,40 @@ class _$_Place implements _Place {
 }
 
 abstract class _Place implements Place {
-  const factory _Place(
-      {required final int id,
-      required final String title,
-      required final double latitude,
-      required final double longitude,
-      required final String region,
-      required final int distance,
-      required final List<Description> descriptions,
-      required final List<String> photos,
-      required final double rating}) = _$_Place;
+  factory _Place(
+      {final int? id,
+      final String? title,
+      final double? latitude,
+      final double? longitude,
+      final int? region,
+      final int? distance,
+      final List<Description>? descriptions,
+      final List<String>? photos,
+      final List<Recommendation>? recommendations,
+      final int? rating}) = _$_Place;
 
   factory _Place.fromJson(Map<String, dynamic> json) = _$_Place.fromJson;
 
   @override
-  int get id;
+  int? get id;
   @override
-  String get title;
+  String? get title;
   @override
-  double get latitude;
+  double? get latitude;
   @override
-  double get longitude;
+  double? get longitude;
   @override
-  String get region;
+  int? get region;
   @override
-  int get distance;
+  int? get distance;
   @override
-  List<Description> get descriptions;
+  List<Description>? get descriptions;
   @override
-  List<String> get photos;
+  List<String>? get photos;
   @override
-  double get rating;
+  List<Recommendation>? get recommendations;
+  @override
+  int? get rating;
   @override
   @JsonKey(ignore: true)
   _$$_PlaceCopyWith<_$_Place> get copyWith =>
@@ -341,8 +377,8 @@ Description _$DescriptionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Description {
-  String get language => throw _privateConstructorUsedError;
-  String get content => throw _privateConstructorUsedError;
+  String? get language => throw _privateConstructorUsedError;
+  String? get content => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -356,7 +392,7 @@ abstract class $DescriptionCopyWith<$Res> {
           Description value, $Res Function(Description) then) =
       _$DescriptionCopyWithImpl<$Res, Description>;
   @useResult
-  $Res call({String language, String content});
+  $Res call({String? language, String? content});
 }
 
 /// @nodoc
@@ -372,18 +408,18 @@ class _$DescriptionCopyWithImpl<$Res, $Val extends Description>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? language = null,
-    Object? content = null,
+    Object? language = freezed,
+    Object? content = freezed,
   }) {
     return _then(_value.copyWith(
-      language: null == language
+      language: freezed == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
-              as String,
-      content: null == content
+              as String?,
+      content: freezed == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -396,7 +432,7 @@ abstract class _$$_DescriptionCopyWith<$Res>
       __$$_DescriptionCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String language, String content});
+  $Res call({String? language, String? content});
 }
 
 /// @nodoc
@@ -410,18 +446,18 @@ class __$$_DescriptionCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? language = null,
-    Object? content = null,
+    Object? language = freezed,
+    Object? content = freezed,
   }) {
     return _then(_$_Description(
-      language: null == language
+      language: freezed == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
-              as String,
-      content: null == content
+              as String?,
+      content: freezed == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -429,15 +465,15 @@ class __$$_DescriptionCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Description implements _Description {
-  const _$_Description({required this.language, required this.content});
+  _$_Description({this.language, this.content});
 
   factory _$_Description.fromJson(Map<String, dynamic> json) =>
       _$$_DescriptionFromJson(json);
 
   @override
-  final String language;
+  final String? language;
   @override
-  final String content;
+  final String? content;
 
   @override
   String toString() {
@@ -473,19 +509,171 @@ class _$_Description implements _Description {
 }
 
 abstract class _Description implements Description {
-  const factory _Description(
-      {required final String language,
-      required final String content}) = _$_Description;
+  factory _Description({final String? language, final String? content}) =
+      _$_Description;
 
   factory _Description.fromJson(Map<String, dynamic> json) =
       _$_Description.fromJson;
 
   @override
-  String get language;
+  String? get language;
   @override
-  String get content;
+  String? get content;
   @override
   @JsonKey(ignore: true)
   _$$_DescriptionCopyWith<_$_Description> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Recommendation _$RecommendationFromJson(Map<String, dynamic> json) {
+  return _Recommendation.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Recommendation {
+  String? get desc => throw _privateConstructorUsedError;
+  String? get message => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $RecommendationCopyWith<Recommendation> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $RecommendationCopyWith<$Res> {
+  factory $RecommendationCopyWith(
+          Recommendation value, $Res Function(Recommendation) then) =
+      _$RecommendationCopyWithImpl<$Res, Recommendation>;
+  @useResult
+  $Res call({String? desc, String? message});
+}
+
+/// @nodoc
+class _$RecommendationCopyWithImpl<$Res, $Val extends Recommendation>
+    implements $RecommendationCopyWith<$Res> {
+  _$RecommendationCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? desc = freezed,
+    Object? message = freezed,
+  }) {
+    return _then(_value.copyWith(
+      desc: freezed == desc
+          ? _value.desc
+          : desc // ignore: cast_nullable_to_non_nullable
+              as String?,
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_RecommendationCopyWith<$Res>
+    implements $RecommendationCopyWith<$Res> {
+  factory _$$_RecommendationCopyWith(
+          _$_Recommendation value, $Res Function(_$_Recommendation) then) =
+      __$$_RecommendationCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String? desc, String? message});
+}
+
+/// @nodoc
+class __$$_RecommendationCopyWithImpl<$Res>
+    extends _$RecommendationCopyWithImpl<$Res, _$_Recommendation>
+    implements _$$_RecommendationCopyWith<$Res> {
+  __$$_RecommendationCopyWithImpl(
+      _$_Recommendation _value, $Res Function(_$_Recommendation) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? desc = freezed,
+    Object? message = freezed,
+  }) {
+    return _then(_$_Recommendation(
+      desc: freezed == desc
+          ? _value.desc
+          : desc // ignore: cast_nullable_to_non_nullable
+              as String?,
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_Recommendation implements _Recommendation {
+  _$_Recommendation({this.desc, this.message});
+
+  factory _$_Recommendation.fromJson(Map<String, dynamic> json) =>
+      _$$_RecommendationFromJson(json);
+
+  @override
+  final String? desc;
+  @override
+  final String? message;
+
+  @override
+  String toString() {
+    return 'Recommendation(desc: $desc, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Recommendation &&
+            (identical(other.desc, desc) || other.desc == desc) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, desc, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_RecommendationCopyWith<_$_Recommendation> get copyWith =>
+      __$$_RecommendationCopyWithImpl<_$_Recommendation>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_RecommendationToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Recommendation implements Recommendation {
+  factory _Recommendation({final String? desc, final String? message}) =
+      _$_Recommendation;
+
+  factory _Recommendation.fromJson(Map<String, dynamic> json) =
+      _$_Recommendation.fromJson;
+
+  @override
+  String? get desc;
+  @override
+  String? get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$_RecommendationCopyWith<_$_Recommendation> get copyWith =>
       throw _privateConstructorUsedError;
 }
