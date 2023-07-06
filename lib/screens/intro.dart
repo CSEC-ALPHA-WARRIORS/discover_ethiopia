@@ -75,7 +75,6 @@ class IntroPage extends HookConsumerWidget {
                         onTap: () {
                           ref.read(authStateProvider.notifier).login();
                           var dio = ref.read(dioProvider);
-                          context.go('/');
                         },
                         child: AnimatedContainer(
                           height: 50,

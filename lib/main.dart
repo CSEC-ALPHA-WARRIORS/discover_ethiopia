@@ -1,5 +1,6 @@
 import 'package:discover_ethiopia/constants/colors.dart';
 import 'package:discover_ethiopia/firebase_options.dart';
+import 'package:discover_ethiopia/state/language/lang.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -16,11 +17,7 @@ void main() async {
   );
   runApp(
     EasyLocalization(
-      supportedLocales: const [
-        Locale('en'),
-        Locale('am'),
-      ],
-      startLocale: const Locale('am'),
+      supportedLocales: langs.map((e) => e.locale).toList(),
       path: 'assets/translations',
       child: const ProviderScope(
         child: MyApp(),

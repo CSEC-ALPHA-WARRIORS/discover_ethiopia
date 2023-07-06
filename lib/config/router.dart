@@ -8,6 +8,7 @@ import 'package:discover_ethiopia/screens/home.dart';
 import 'package:discover_ethiopia/screens/intro.dart';
 import 'package:discover_ethiopia/screens/place_details.dart';
 import 'package:discover_ethiopia/screens/place_map.dart';
+import 'package:discover_ethiopia/screens/profile.dart';
 import 'package:discover_ethiopia/screens/reviews.dart';
 import 'package:discover_ethiopia/screens/search.dart';
 import 'package:discover_ethiopia/screens/tools.dart';
@@ -94,6 +95,10 @@ GoRouter router(Ref ref) {
           GoRoute(
             path: '/home/place-details/reviews',
             builder: (context, state) => const ReviewPage(),
+          ),
+          GoRoute(
+            path: '/settings',
+            builder: (context, state) => const ProfilePage(),
           )
         ],
       ),

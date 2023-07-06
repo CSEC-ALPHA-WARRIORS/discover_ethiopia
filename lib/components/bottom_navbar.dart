@@ -1,6 +1,4 @@
 import 'package:discover_ethiopia/constants/colors.dart';
-import 'package:discover_ethiopia/state/auth_state.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -8,7 +6,7 @@ import 'package:icons_plus/icons_plus.dart';
 
 class BottomNavItem {
   final String path;
-  final IconsaxData icon;
+  final IconData icon;
   final bool primary;
 
   const BottomNavItem({
@@ -34,7 +32,7 @@ class BottomNavBar extends HookConsumerWidget {
     ),
     BottomNavItem(
       path: '/ethiopia',
-      icon: Iconsax.heart,
+      icon: BoxIcons.bx_search_alt,
       primary: true,
     ),
     BottomNavItem(
@@ -72,8 +70,7 @@ class BottomNavBar extends HookConsumerWidget {
                 child: Center(
                   child: GestureDetector(
                     onTap: () {
-                      ref.read(authStateProvider.notifier).logout();
-                      context.go('/intro');
+                      context.push('/home/search');
                     },
                     child: Container(
                       height: 55,

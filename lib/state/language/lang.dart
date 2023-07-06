@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'lang.g.dart';
+class LanguageClass {
+  final Locale locale;
+  final String label;
 
-@riverpod
-class Language extends _$Language {
-  @override
-  Locale build() {
-    return const Locale('en');
-  }
-
-  void changeLocale(Locale l) {
-    state = l;
-  }
+  LanguageClass({
+    required this.locale,
+    required this.label,
+  });
 }
+
+List<LanguageClass> langs = [
+  LanguageClass(locale: const Locale('en'), label: "English"),
+  LanguageClass(locale: const Locale('am'), label: "Amharic"),
+];

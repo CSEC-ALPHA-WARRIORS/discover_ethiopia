@@ -36,18 +36,18 @@ class ToolsPage extends HookConsumerWidget {
                     Bootstrap.calendar2_date,
                     '/calendar',
                   ),
-                  tools_card(
-                    context,
-                    "Calendar Converter",
-                    Bootstrap.arrow_repeat,
-                    '/tools/calendar-converter',
-                  ),
-                  tools_card(
-                    context,
-                    "Weather\nForecast",
-                    Bootstrap.cloud_sun,
-                    '/weather',
-                  ),
+                  // tools_card(
+                  //   context,
+                  //   "Calendar Converter",
+                  //   Bootstrap.arrow_repeat,
+                  //   '/tools/calendar-converter',
+                  // ),
+                  // tools_card(
+                  //   context,
+                  //   "Weather\nForecast",
+                  //   Bootstrap.cloud_sun,
+                  //   '/weather',
+                  // ),
                   tools_card(
                     context,
                     "Currency\nConverter",

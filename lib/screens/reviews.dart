@@ -248,9 +248,10 @@ class ReviewPage extends HookConsumerWidget {
                             Row(
                               children: [
                                 CircleAvatar(
-                                  radius: 30,
+                                  radius: 24,
                                   backgroundImage: CachedNetworkImageProvider(
-                                    current.user?[0].photoUrl ?? '',
+                                    current.user?[0].photoUrl ??
+                                        'https://api.dicebear.com/6.x/adventurer/svg?seed=${current.user?[0].name}',
                                   ),
                                 ),
                                 const SizedBox(
