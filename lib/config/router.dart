@@ -1,7 +1,9 @@
 import 'package:discover_ethiopia/components/bottom_navbar.dart';
 import 'package:discover_ethiopia/controllers/categories/categories_controller.dart';
 import 'package:discover_ethiopia/screens/calendar.dart';
+import 'package:discover_ethiopia/screens/calendar_converter.dart';
 import 'package:discover_ethiopia/screens/category.dart';
+import 'package:discover_ethiopia/screens/currency_converter.dart';
 import 'package:discover_ethiopia/screens/home.dart';
 import 'package:discover_ethiopia/screens/intro.dart';
 import 'package:discover_ethiopia/screens/place_details.dart';
@@ -42,6 +44,10 @@ GoRouter router(Ref ref) {
           return null;
         },
       ),
+      GoRoute(
+        path: '/tools/currency',
+        builder: (context, state) => CurrencyConverter(),
+      ),
       ShellRoute(
         builder: (context, state, child) => Scaffold(
           body: child,
@@ -55,6 +61,14 @@ GoRouter router(Ref ref) {
           GoRoute(
             path: '/calendar',
             builder: (context, state) => const Calendar(),
+          ),
+          GoRoute(
+            path: '/tools',
+            builder: (context, state) => const ToolsPage(),
+          ),
+          GoRoute(
+            path: '/tools/calendar-converter',
+            builder: (context, state) => const CalendarConverter(),
           ),
           GoRoute(
             path: '/home/category/:id',

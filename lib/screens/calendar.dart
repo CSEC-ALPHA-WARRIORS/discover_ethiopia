@@ -409,7 +409,9 @@ class Calendar extends HookConsumerWidget {
                                     ),
                                   )
                                   .toList(),
-                              ...current_days.map((e) {
+                              ...current_days.asMap().entries.map((x) {
+                                var e = x.value;
+                                var i = x.key;
                                 var isToday = (DateTime(
                                       e.year ?? 0,
                                       e.month ?? 0,
@@ -425,9 +427,9 @@ class Calendar extends HookConsumerWidget {
                                         .inDays ==
                                     0);
                                 return AnimationConfiguration.staggeredGrid(
-                                  position: e.day!,
+                                  position: i,
                                   columnCount: 7,
-                                  duration: Duration(microseconds: 200),
+                                  duration: Duration(microseconds: 500),
                                   child: FadeInAnimation(
                                     child: ScaleAnimation(
                                       child: Padding(

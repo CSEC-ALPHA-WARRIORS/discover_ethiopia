@@ -28,8 +28,8 @@ class CustomAppBar extends HookConsumerWidget {
       child: Row(
         children: [
           Container(
-            height: 50,
-            width: 50,
+            height: 40,
+            width: 40,
             decoration: BoxDecoration(
               color: Colors.grey.shade200,
               borderRadius: BorderRadius.circular(5),
@@ -40,7 +40,7 @@ class CustomAppBar extends HookConsumerWidget {
               },
               icon: const Icon(
                 BoxIcons.bx_chevron_left,
-                size: 30,
+                size: 25,
               ),
               color: KPrimaryColor.shade900,
             ),
@@ -50,9 +50,9 @@ class CustomAppBar extends HookConsumerWidget {
               child: Text(
                 title ?? '',
                 style: const TextStyle(
-                  color: KPrimaryColor.shade700,
+                  color: KPrimaryColor.shade900,
                   fontSize: 20,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w800,
                 ),
               ).tr(),
             ),
