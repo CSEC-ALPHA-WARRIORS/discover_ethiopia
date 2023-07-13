@@ -20,7 +20,7 @@ final placeReviewProvider = AutoDisposeFutureProvider<ReviewModel>.internal(
 );
 
 typedef PlaceReviewRef = AutoDisposeFutureProviderRef<ReviewModel>;
-String _$postReviewHash() => r'5fb0a07b538f41c29ef94cd835fbd42c5d54fc2e';
+String _$postReviewHash() => r'1787539035968ed6ce4336ab4da65a9b600cfcaf';
 
 /// See also [PostReview].
 @ProviderFor(PostReview)

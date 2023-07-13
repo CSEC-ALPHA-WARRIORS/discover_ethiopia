@@ -132,7 +132,7 @@ class PlaceListItem extends HookConsumerWidget {
                       ),
                     ),
                     Text(
-                      ethiopiaRegions[place?.region ?? 0],
+                      ethiopiaRegions[(place?.region ?? 1) - 1],
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.grey,

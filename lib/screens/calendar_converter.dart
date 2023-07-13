@@ -18,6 +18,10 @@ class CalendarConverter extends HookConsumerWidget {
     var eMonth = useState(currentEC.value.month);
     var eYear = useState(currentEC.value.year);
 
+    var gDate = useState(currentGC.value.day);
+    var gMonth = useState(currentGC.value.month);
+    var gYear = useState(currentGC.value.year);
+
     return Scaffold(
       body: SafeArea(
         child: CustomScrollView(
@@ -28,28 +32,50 @@ class CalendarConverter extends HookConsumerWidget {
               ),
             ),
             SliverToBoxAdapter(
-              child: Column(
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: KPrimaryColor.shade100.withOpacity(0.2),
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                child: Column(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        color: KPrimaryColor.shade100.withOpacity(0.2),
+                      ),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: DropdownButton(
+                              value: eDate.value,
+                              items: getMonth(eMonth.value!, eYear.value!)
+                                  .map(
+                                    (e) => DropdownMenuItem(
+                                      value: e.day,
+                                      child: Text('${e.day}'),
+                                    ),
+                                  )
+                                  .toList(),
+                              onChanged: (value) {},
+                            ),
+                          ),
+                          Expanded(
+                            child: DropdownButton(
+                              value: eDate.value,
+                              items: getMonth(eMonth.value!, eYear.value!)
+                                  .map(
+                                    (e) => DropdownMenuItem(
+                                      value: e.day,
+                                      child: Text('${e.day}'),
+                                    ),
+                                  )
+                                  .toList(),
+                              onChanged: (value) {},
+                            ),
+                          )
+                        ],
+                      ),
                     ),
-                    child: Row(
-                      children: [
-                        DropdownButton(
-                          items: getMonth(eMonth.value!, eYear.value!)
-                              .map(
-                                (e) => DropdownMenuItem(
-                                  child: Text('${e.day}'),
-                                ),
-                              )
-                              .toList(),
-                          onChanged: (value) {},
-                        )
-                      ],
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ],

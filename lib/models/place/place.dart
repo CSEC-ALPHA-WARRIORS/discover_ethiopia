@@ -15,7 +15,7 @@ class Place with _$Place {
     List<Description>? descriptions,
     List<String>? photos,
     List<Recommendation>? recommendations,
-    int? rating,
+    double? rating,
   }) = _Place;
 
   factory Place.fromJson(dynamic json) => _$PlaceFromJson(json);

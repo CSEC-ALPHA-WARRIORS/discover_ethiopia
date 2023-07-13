@@ -74,7 +74,7 @@ class IntroPage extends HookConsumerWidget {
                       child: InkWell(
                         onTap: () {
                           ref.read(authStateProvider.notifier).login();
-                          var dio = ref.read(dioProvider);
+                          context.go('/');
                         },
                         child: AnimatedContainer(
                           height: 50,

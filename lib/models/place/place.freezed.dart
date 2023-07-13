@@ -30,7 +30,7 @@ mixin _$Place {
   List<String>? get photos => throw _privateConstructorUsedError;
   List<Recommendation>? get recommendations =>
       throw _privateConstructorUsedError;
-  int? get rating => throw _privateConstructorUsedError;
+  double? get rating => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -52,7 +52,7 @@ abstract class $PlaceCopyWith<$Res> {
       List<Description>? descriptions,
       List<String>? photos,
       List<Recommendation>? recommendations,
-      int? rating});
+      double? rating});
 }
 
 /// @nodoc
@@ -119,7 +119,7 @@ class _$PlaceCopyWithImpl<$Res, $Val extends Place>
       rating: freezed == rating
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
     ) as $Val);
   }
 }
@@ -140,7 +140,7 @@ abstract class _$$_PlaceCopyWith<$Res> implements $PlaceCopyWith<$Res> {
       List<Description>? descriptions,
       List<String>? photos,
       List<Recommendation>? recommendations,
-      int? rating});
+      double? rating});
 }
 
 /// @nodoc
@@ -203,7 +203,7 @@ class __$$_PlaceCopyWithImpl<$Res> extends _$PlaceCopyWithImpl<$Res, _$_Place>
       rating: freezed == rating
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
     ));
   }
 }
@@ -272,7 +272,7 @@ class _$_Place implements _Place {
   }
 
   @override
-  final int? rating;
+  final double? rating;
 
   @override
   String toString() {
@@ -341,7 +341,7 @@ abstract class _Place implements Place {
       final List<Description>? descriptions,
       final List<String>? photos,
       final List<Recommendation>? recommendations,
-      final int? rating}) = _$_Place;
+      final double? rating}) = _$_Place;
 
   factory _Place.fromJson(Map<String, dynamic> json) = _$_Place.fromJson;
 
@@ -364,7 +364,7 @@ abstract class _Place implements Place {
   @override
   List<Recommendation>? get recommendations;
   @override
-  int? get rating;
+  double? get rating;
   @override
   @JsonKey(ignore: true)
   _$$_PlaceCopyWith<_$_Place> get copyWith =>

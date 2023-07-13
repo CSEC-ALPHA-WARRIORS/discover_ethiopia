@@ -1,5 +1,4 @@
 import 'package:discover_ethiopia/components/bottom_navbar.dart';
-import 'package:discover_ethiopia/controllers/categories/categories_controller.dart';
 import 'package:discover_ethiopia/screens/calendar.dart';
 import 'package:discover_ethiopia/screens/calendar_converter.dart';
 import 'package:discover_ethiopia/screens/category.dart';

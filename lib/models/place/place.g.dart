@@ -21,7 +21,7 @@ _$_Place _$$_PlaceFromJson(Map<String, dynamic> json) => _$_Place(
       recommendations: (json['recommendations'] as List<dynamic>?)
           ?.map((e) => Recommendation.fromJson(e as Map<String, dynamic>))
           .toList(),
-      rating: json['rating'] as int?,
+      rating: (json['rating'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$$_PlaceToJson(_$_Place instance) => <String, dynamic>{

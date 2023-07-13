@@ -26,5 +26,10 @@
     "logout": "Logout",
     "logout_desc": "Ethiopia will miss you",
     "Amharic": "Amharic",
-    "English": "English"
+    "English": "English",
+    "ethiopian_calendar": "Ethiopian Calendar",
+    "currency_converter": "Currency Converter",
+    "Tools": "Tools",
+    "tools_desc": "Need some tools, here they are",
+    "calendar": "Calendar"
 }
